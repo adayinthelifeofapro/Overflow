@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace QuestionService.Models;
 
@@ -30,4 +31,9 @@ public class Question
     public bool HasAcceptedAnswer { get; set; }
 
     public int Votes { get; set; }
+
+    public int AnswerCount { get; set; }
+
+    [JsonIgnore]
+    public List<Answer> Answers { get; set; } = [];
 }
