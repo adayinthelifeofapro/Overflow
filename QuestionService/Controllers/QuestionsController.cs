@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using System.Composition;
+using System.Security.Claims;
 using Contracts;
 using FastExpressionCompiler;
 using Microsoft.AspNetCore.Authorization;
@@ -226,28 +227,39 @@ public class QuestionsController(QuestionDbContext db, IMessageBus bus, TagServi
     }
 
     [Authorize]
-    [HttpPost("questions/{questionId}/answers/{answerId}/accept")]
+    [HttpPost("{questionId}/answers/{answerId}/accept")]
     public async Task<ActionResult> AcceptAnswer(string questionId, string answerId)
     {
         var answer = await db.Answers.FindAsync(answerId);
-        if (answer is null)
-        {
-            return NotFound();
-        }
-        
         var question = await db.Questions.FindAsync(questionId);
-        if (question is null)
-        {
-            return NotFound();
-        }
-
+        
+        if (answer is null || question is null) return NotFound();
+        if (answer.QuestionId != questionId || question.HasAcceptedAnswer) return
+            BadRequest("Cannot accept answer");
+        
         answer.Accepted = true;
         question.HasAcceptedAnswer = true;
-        
         await db.SaveChangesAsync();
-
+        
         await bus.PublishAsync(new AnswerAccepted(questionId));
         
         return NoContent();
+    }    
+    
+    [HttpGet("errors")]
+    public ActionResult GetErrorResponses(int code)
+    {
+        ModelState.AddModelError("Problem one", "Validation problem one");
+        ModelState.AddModelError("Problem two", "Validation problem two");
+        
+        return code switch
+        {
+            400 => BadRequest("Opposite of good request"),
+            401 => Unauthorized(),
+            403 => Forbid(),
+            404 => NotFound(),
+            500 => throw new Exception("This is a server error"),
+            _ => ValidationProblem(ModelState)
+        };
     }
 }

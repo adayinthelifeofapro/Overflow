@@ -34,6 +34,5 @@ public class Question
 
     public int AnswerCount { get; set; }
 
-    [JsonIgnore]
     public List<Answer> Answers { get; set; } = [];
 }
