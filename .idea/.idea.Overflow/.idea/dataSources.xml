@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="postgres" uuid="d9489dd4-6f7b-4d36-8710-2744d13d7200">
+    <data-source source="LOCAL" name="postgres" uuid="d636b694-71b2-4256-b5fd-20068ed4372d">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:60800/?password=XFX%21EXU6vrhUEfY%214%7D%7EwkT&amp;user=postgres</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:56293/?password=XFX%21EXU6vrhUEfY%214%7D%7EwkT&amp;user=postgres</jdbc-url>
       <jdbc-additional-properties>
-        <property name="aspireResourceId" value="postgres-xxmnvpca" />
+        <property name="aspireResourceId" value="postgres-gbdpmxnv" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="postgres" uuid="d5c12cf1-9b88-40a4-a18b-557fc1f94ab5">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:55550/?password=XFX%21EXU6vrhUEfY%214%7D%7EwkT&amp;user=postgres</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="aspireResourceId" value="postgres-ethtnvyd" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="postgres" uuid="ff8f6e15-58bb-4624-b8df-606040c5df56">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:54387/?password=XFX%21EXU6vrhUEfY%214%7D%7EwkT&amp;user=postgres</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="aspireResourceId" value="postgres-vgnvqfdq" />
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
